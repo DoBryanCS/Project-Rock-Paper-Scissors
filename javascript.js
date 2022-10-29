@@ -1,3 +1,4 @@
+//function to get random computer choice between rock, paper and scissors
 function getComputerChoice() {
     var choiceNumber = Math.random() * 3;
     if (choiceNumber <= 1) {
@@ -11,6 +12,7 @@ function getComputerChoice() {
 
 }
 
+//function to determine the outcome of a round
 function playRound(playerSelection, computerSelection) {
     if (playerSelection.toLowerCase() ==  "rock" && computerSelection == "Rock") {
         return "It's a draw!"
@@ -33,6 +35,7 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+//function to play a game of rock, paper, scissors for 5 rounds while keeping track of points
 function game() {
     let scoreYou = 0
     let scoreComputer = 0
@@ -52,19 +55,28 @@ function game() {
             console.log(result)
             console.log(scoreYou)
             console.log(scoreComputer)
-        } else {
+        } else if (result === "You Win! Paper beats Rock" || result === "You Win! Rock beats Scissors" || result === "You Win! Scissors beats Paper") {
             scoreYou += 1
             scoreComputer += 0
             console.log(result)
             console.log(scoreYou)
             console.log(scoreComputer)
 
+        } else {
+            console.log("Invalid choice")
+            console.log(scoreYou)
+            console.log(scoreComputer)
+            if (i > 0) {
+                i --
+            }
         }
     }
     if (scoreYou > scoreComputer) {
         console.log("You Won!")
-    } else {
+    } else if (scoreComputer > scoreYou) {
         console.log("You Lost!")
+    } else {
+        console.log("Draw!")
     }
 }
 
